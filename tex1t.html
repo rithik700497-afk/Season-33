@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Season 33 Restaurant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+  background:#f6f3ef;
+  color:#333;
+}
+
+/* SPLASH */
+#splash{
+  position:fixed;
+  inset:0;
+  background:#111;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  z-index:10;
+}
+
+#splash img{
+  width:120px;
+  margin-bottom:15px;
+}
+
+#splash h1{
+  letter-spacing:2px;
+}
+
+/* MAIN */
+#main{
+  display:none;
+}
+
+header{
+  background:#1e1e1e;
+  color:white;
+  padding:15px;
+  text-align:center;
+}
+
+.categories{
+  display:flex;
+  overflow-x:auto;
+  padding:10px;
+  background:#fff;
+}
+
+.categories button{
+  margin-right:10px;
+  padding:8px 15px;
+  border:none;
+  background:#c59d5f;
+  color:white;
+  border-radius:20px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.menu{
+  padding:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:#fff;
+  border-radius:12px;
+  padding:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card h3{
+  margin-bottom:5px;
+}
+
+.price{
+  font-weight:bold;
+  color:#c59d5f;
+  margin-top:8px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <img src="logo.png">
+  <h1>SEASON 33</h1>
+  <p>Restaurant</p>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+<header>
+  <h2>Season 33 Restaurant</h2>
+  <p>Indian | Chinese | Tandoori</p>
+</header>
+
+<div class="categories">
+  <button onclick="show('breakfast')">Breakfast</button>
+  <button onclick="show('beverages')">Beverages</button>
+  <button onclick="show('veg')">Veg Main Course</button>
+  <button onclick="show('nonveg')">Non-Veg Main Course</button>
+  <button onclick="show('chinese')">Chinese</button>
+  <button onclick="show('dessert')">Dessert</button>
+</div>
+
+<div class="menu">
+
+  <!-- BREAKFAST -->
+  <div class="card breakfast">
+    <h3>Bread Toast with Preserves</h3>
+    <p>Served with butter & jam</p>
+    <div class="price">₹80</div>
+  </div>
+
+  <div class="card breakfast">
+    <h3>Puri Sabji</h3>
+    <p>Traditional Indian Breakfast</p>
+    <div class="price">₹120</div>
+  </div>
+
+  <!-- BEVERAGES -->
+  <div class="card beverages">
+    <h3>Cold Coffee</h3>
+    <p>With or without ice cream</p>
+    <div class="price">₹140</div>
+  </div>
+
+  <div class="card beverages">
+    <h3>Blue Lagoon Mocktail</h3>
+    <div class="price">₹120</div>
+  </div>
+
+  <!-- VEG -->
+  <div class="card veg">
+    <h3>Paneer Butter Masala</h3>
+    <p>Rich tomato gravy with butter</p>
+    <div class="price">₹240</div>
+  </div>
+
+  <div class="card veg">
+    <h3>Kadai Paneer</h3>
+    <div class="price">₹250</div>
+  </div>
+
+  <!-- NON VEG -->
+  <div class="card nonveg">
+    <h3>Chicken Butter Masala</h3>
+    <div class="price">₹290</div>
+  </div>
+
+  <div class="card nonveg">
+    <h3>Mutton Rogan Josh</h3>
+    <div class="price">₹320</div>
+  </div>
+
+  <!-- CHINESE -->
+  <div class="card chinese">
+    <h3>Chilli Paneer Dry</h3>
+    <div class="price">₹210</div>
+  </div>
+
+  <div class="card chinese">
+    <h3>Chicken Manchurian</h3>
+    <div class="price">₹220</div>
+  </div>
+
+  <!-- DESSERT -->
+  <div class="card dessert">
+    <h3>Gulab Jamun</h3>
+    <div class="price">₹50</div>
+  </div>
+
+  <div class="card dessert">
+    <h3>Shahi Tukda</h3>
+    <div class="price">₹140</div>
+  </div>
+
+</div>
+</div>
+
+<script>
+setTimeout(()=>{
+  document.getElementById("splash").style.display="none";
+  document.getElementById("main").style.display="block";
+},2000);
+
+function show(cat){
+  document.querySelectorAll(".card").forEach(c=>{
+    c.style.display = c.classList.contains(cat) ? "block" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
